@@ -1,0 +1,36 @@
+#CONFIG EN TANT QUE SERVER de config
+server:
+  port: 8071
+
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: "git"
+  cloud:
+    config:
+      server:
+        git:
+          uri: "https://github.com/yohan-lambeau/eventhub-config"
+          clone-on-start: true
+          default-label: main
+          timeout: 5
+          force-pull: true
+
+
+
+#Health check Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    readinessstate:
+      enabled: true
+    livenessstate:
+      enabled: true
+  endpoint:
+    health:
+      probes:
+        enabled: true

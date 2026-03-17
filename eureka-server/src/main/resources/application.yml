@@ -1,0 +1,25 @@
+#Config general
+spring:
+  application:
+    name: eureka-server
+
+  #    Config de configserver-client
+  config:
+    import: "optional:configserver:http://localhost:8071"
+
+
+#Health check Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    readinessstate:
+      enabled: true
+    livenessstate:
+      enabled: true
+  endpoint:
+    health:
+      probes:
+        enabled: true
