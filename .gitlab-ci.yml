@@ -10,7 +10,7 @@ build-job:
   script:
     - echo "Compilation du projet"
     - echo "Compilation du premier microservice -> config-server"
-    - cd configserver
+    - cd config-server
     - mvn clean install -DskipTests
 
 test-job:
