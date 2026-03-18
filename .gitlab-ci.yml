@@ -1,21 +1,75 @@
-# fix pipeline trigger
 image: maven:3.9.6-eclipse-temurin-17
 
 stages:
   - build
   - test
 
-build-job:
+# ========================
+# BUILD STAGE
+# ========================
+
+build-config-server:
   stage: build
   script:
-    - echo "Compilation du projet"
-    - echo "Compilation du premier microservice -> config-server"
     - cd config-server
     - mvn clean install -DskipTests
 
-test-job:
+build-eureka-server:
+  stage: build
+  script:
+    - cd eureka-server
+    - mvn clean install -DskipTests
+
+build-event-service:
+  stage: build
+  script:
+    - cd event-service
+    - mvn clean install -DskipTests
+
+build-user-service:
+  stage: build
+  script:
+    - cd user-service
+    - mvn clean install -DskipTests
+
+build-gateway-service:
+  stage: build
+  script:
+    - cd gateway-service
+    - mvn clean install -DskipTests
+
+
+
+# ========================
+# TEST STAGE
+# ========================
+
+test-config-server:
   stage: test
   script:
-    - echo "Test config-server"
     - cd config-server
+    - mvn test
+
+test-eureka-server:
+  stage: test
+  script:
+    - cd eureka-server
+    - mvn test
+
+test-event-service:
+  stage: test
+  script:
+    - cd event-service
+    - mvn test
+
+test-user-service:
+  stage: test
+  script:
+    - cd user-service
+    - mvn test
+
+test-gateway-service:
+  stage: test
+  script:
+    - cd gateway-service
     - mvn test
