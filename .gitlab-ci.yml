@@ -9,7 +9,7 @@ build-job:
   stage: build
   script:
     - echo "Compilation du projet"
-    - echo "Compilation du premier microservice -> configserver"
+    - echo "Compilation du premier microservice -> config-server"
     - cd configserver
     - mvn clean install -DskipTests
 
