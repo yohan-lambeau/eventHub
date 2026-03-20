@@ -1,4 +1,5 @@
 package yohan.lambeau.com.eventhub.eventservice.model;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -15,9 +16,11 @@ import java.time.LocalDateTime;
 @ToString
 public class Event  {
 
+
     @Id
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private String title;
 
@@ -26,4 +29,5 @@ public class Event  {
     private String location;
 
     private LocalDateTime date;
+
 }

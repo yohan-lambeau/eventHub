@@ -7,7 +7,7 @@ import yohan.lambeau.com.eventhub.eventservice.service.EventService;
 import java.util.List;
 
 @RestController
-@RequestMapping("events")
+@RequestMapping("/events")
 public class EventController {
 
     private final EventService eventService;
