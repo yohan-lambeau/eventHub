@@ -1,14 +1,7 @@
-#Config general
 spring:
   application:
     name: eureka-server
 
-  #    Config de configserver-client
-  config:
-    import: "optional:configserver:http://localhost:8071"
-
-
-#Health check Configuration
 management:
   endpoints:
     web:
