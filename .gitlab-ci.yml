@@ -47,12 +47,14 @@ build-gateway-service:
 test-config-server:
   stage: test
   script:
+    - echo "Test du MS config-server"
     - cd config-server
     - mvn test
 
 test-eureka-server:
   stage: test
   script:
+    - echo "Test du MS eureka-server"
     - cd eureka-server
     - mvn test
 
